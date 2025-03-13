@@ -20,7 +20,7 @@ var x = 5;
 console.log(y);
 let y = 10;
 ```
-a) A saída será undefined seguido de erro 
+## a) A saída será undefined seguido de erro 
 
 b) A saída será 5 seguido de 10
 
