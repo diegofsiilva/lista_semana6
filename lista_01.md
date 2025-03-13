@@ -1,17 +1,3 @@
-# lista_semana6
-
-# Instruções
-- Faça uma cópia deste arquivo .md para um repositório próprio
-- Resolva as 8 questões objetivas assinalando a alternativa correta e **justificando sua resposta.**
-- Resolva as 2 questões dissertativas escrevendo no próprio arquivo .md
-- Lembre-se de utilizar as estruturas de código como ``esta aqui com ` `` ou
-```javascript
-//esta aqui com ```
-let a = "olá"
-let b = 10
-print(a)
-```
-
 # Questões objetivas
 **1) Considerando a execução do código abaixo, indique a alternativa correta e justifique sua resposta.**
 ```javascript
@@ -20,7 +6,11 @@ var x = 5;
 console.log(y);
 let y = 10;
 ```
-## a) A saída será undefined seguido de erro 
+#### a) A saída será undefined seguido de erro
+```
+Alternativa A), O primeiro undefined acontece porque o x foi declarado, mas ele teve atribuição.
+Já a variável "y" não foi declarada antes dela ser inicializada.
+```
 
 b) A saída será 5 seguido de 10
 
@@ -43,7 +33,10 @@ console.log(soma(2, 0));
 
 a) Substituir if (a || b === 0) por if (a === 0 || b === 0)
 
-b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
+#### b) Substituir if (a || b === 0) por if (a === 0 && b === 0)
+```
+Alternativa B), porque if(a||b ===0) vai verificar os dois valores e não somente um igual no início,
+```
 
 c) Substituir if (a || b === 0) por if (a && b === 0)
 
@@ -76,7 +69,13 @@ console.log(calcularPreco("eletrônico"));
 
 a) O código imprime 1000.
 
-b) O código imprime 200.
+#### b) O código imprime 200.
+```
+Alternativa B), porque no 1o case (eletrônico) 
+não tem um break, então ele continua o código e vai para o próximo, que é o
+(vestuário) que tem um valor definido de 200 e tem um break, o que impede que
+o código continue, e retorna o valor 200.
+```
 
 c) O código imprime 50.
 
@@ -97,7 +96,15 @@ b) 6
 
 c) 18
 
-d) 24
+#### d) 24
+```
+Alternativa D), o ".map" pega a lista e multiplica por 2, depois 
+o ".filter" pega os valores maiores que 5 e por último o ".reduce" 
+vai fazer:
+a=0 que é o valor inicial, b=6 e vai somar os valore 0+6=6
+a=6, b=8 e agora vai somar a+b denovo 6+8=14
+a=14, b=10 e agora ele vai somar com o último valor 14+10=24.
+```
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -111,7 +118,12 @@ a) ["banana", "maçã", "uva", "abacaxi", "manga", "laranja"]
 
 b) ["banana", "abacaxi", "manga"]
 
-c) ["banana", "abacaxi", "manga", "laranja"]
+#### c) ["banana", "abacaxi", "manga", "laranja"]
+```
+Alternativa C), o método splice remove 2 elementos a partir do 
+índice 1 que é "maçã e uva" e insere "abacaxi e manga" 
+no mesmo local.
+```
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 ______
@@ -121,7 +133,16 @@ I. A herança é utilizada para compartilhar métodos e propriedades entre class
 II. Em JavaScript, a herança é implementada através da palavra-chave `extends`.
 
 
-a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.
+#### a) As duas afirmações são verdadeiras, e a segunda justifica a primeira.
+```
+A 1a afirmação "I" é verdadeira porque a herança 
+permite reutilizar código, o que evita a repetição.
+
+A 2a afirmação "II" é verdadeira, porque a herança 
+entre classes é implementada usando extends. A 2a 
+afirmação complementa a 1a, porque extends é o mecanismo 
+que permite a herança.
+```
 
 b) As duas afirmações são verdadeiras, mas a segunda não justifica a primeira.
 
@@ -163,7 +184,16 @@ III) O código não funciona corretamente, pois Funcionario não pode herdar de 
 
 Quais das seguintes afirmações são verdadeiras sobre o código acima?
 
-a) I e II são verdadeiras.
+#### a) I e II são verdadeiras.
+```
+I) Verdadeira: a classe Funcionario herda de "pessoa" 
+e pode acessar os atributos nome e idade diretamente.
+
+II) Verdadeira: o método "apresentar()" da classe Funcionario sobrepõe 
+o método da classe Pessoa, mas chama o método da classe pai usando super.
+
+III) Falsa: o javascript suporta herança de classes usando extends.
+```
 
 b) I, II e III são verdadeiras.
 
@@ -180,7 +210,17 @@ ______
 
 a) A asserção é falsa e a razão é verdadeira.
 
-b) A asserção é verdadeira e a razão é falsa.
+#### b) A asserção é verdadeira e a razão é falsa.
+```
+A asserção está correta, porque o polimorfismo permite que objetos de classes 
+distintas utilizem o mesmo método, mas com comportamentos específicos para 
+cada classe.
+
+A razão está incorreta, porque o JavaScript não oferece suporte à sobrecarga de 
+métodos (ou seja, múltiplos métodos com o mesmo nome e assinaturas diferentes). 
+Em vez disso, o polimorfismo em JavaScript ocorre por meio da herança e da 
+reescrita de métodos nas classes derivadas.
+```
 
 c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explica a asserção.
 
@@ -201,6 +241,28 @@ function somaArray(numeros) {
 }
 console.log(somaArray([1, 2, 3, 4]));
 ```
+
+#### Resposta:
+
+```javascript
+function somaArray(numeros) {
+    let soma = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        soma += 2 * numeros[i];
+    }
+    return soma;
+}
+console.log(somaArray([1, 2, 3, 4]));
+```
+```
+O que eu mudei:
+Inicializei o soma com 0 para evitar erros de variável não definida.
+
+Coloquei numeros.length em vez de numeros.size, pois size não é 
+uma propriedade válida de arrays em JavaScript.
+
+E coloquei += para acumular a soma.
+```
 ______
 10) Crie um exemplo prático no qual você tenha duas classes:
 
@@ -208,3 +270,45 @@ ______
 - Uma classe `Livro` que herda de `Produto` e modifica o método `calcularDesconto()`, aplicando um desconto de 20% no preço dos livros.
 
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
+
+```javascript
+class Maquina {
+    constructor(nome, preco) {
+        this.nome=nome;
+        this.preco=preco;
+    }
+
+    calcularDesconto() {
+        return this.preco*0.9;
+    }
+}
+
+class Livro extends Maquina {
+    constructor(nome, preco, autor){
+        super(nome, preco);
+        this.autor= autor;
+    }
+
+    calcularDesconto() {
+        return this.preco*0.8;
+    }
+}
+
+const produto = new Maquina("Máquina de Lavar", 3000);
+console.log(produto.calcularDesconto());
+
+const livro = new Livro("JavaScript Essentials", 100, "John Doe");
+console.log(livro.calcularDesconto());
+```
+
+```
+A classe Maquina define um método calcularDesconto() que vai 
+aplicar um desconto de 10%.
+
+A classe Livro herda de Produto e sobrescreve o método calcularDesconto() que 
+vai aplicar um desconto de 20%.
+
+A herança permite que Livro utilize novamente os atributos e 
+métodos de "Maquina", enquanto a sobrescrita de métodos permite modificar o 
+comportamento específico da classe filha.
+```
